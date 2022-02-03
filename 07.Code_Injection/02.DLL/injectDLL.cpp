@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
 	HANDLE pHandle;
 	PVOID remBuf;
 	PTHREAD_START_ROUTINE pLoadLibrary = NULL;
-	char dll[] = "Z:\\RTO\\07.Code_Injection\\02.DLL\\implantDLL.dll";
+	char dll[] = "C:\\Users\\rto\\Desktop\\Red_team_notes\\07.Code_Injection\\02.DLL\\implantDLL.dll";
 	char target[] = "notepad.exe";
 	int pid = 0;
 	
