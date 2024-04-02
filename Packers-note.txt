@@ -1,0 +1,9 @@
+#From thm
+Another method to defeat disk-based AV detection is to use a packer. Packers are pieces of software that take a program as input and transform it so that its structure looks different, but their functionality remains exactly the same. Packers do this with two main goals in mind:
+
+    - Compress the program so that it takes up less space.
+    - Protect the program from reverse engineering in general.
+
+Packers are commonly used by software developers who would like to protect their software from being reverse engineered or cracked. They achieve some level of protection by implementing a mixture of transforms that include compressing, encrypting, adding debugging protections and many others. As you may have already guessed, packers are also commonly used to obfuscate malware without much effort.
+
+There's quite a large number of packers out there, including UPX, MPRESS, Themida, and many others.
