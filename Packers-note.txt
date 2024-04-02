@@ -7,3 +7,6 @@ Another method to defeat disk-based AV detection is to use a packer. Packers are
 Packers are commonly used by software developers who would like to protect their software from being reverse engineered or cracked. They achieve some level of protection by implementing a mixture of transforms that include compressing, encrypting, adding debugging protections and many others. As you may have already guessed, packers are also commonly used to obfuscate malware without much effort.
 
 There's quite a large number of packers out there, including UPX, MPRESS, Themida, and many others.
+
+https://github.com/mkaring/ConfuserEx/releases/tag/v1.6.0
+
