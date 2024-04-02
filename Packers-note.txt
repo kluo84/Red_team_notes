@@ -10,3 +10,11 @@ There's quite a large number of packers out there, including UPX, MPRESS, Themid
 
 https://github.com/mkaring/ConfuserEx/releases/tag/v1.6.0
 
+While defeating in-memory scanning is out of the scope of this room, there are a couple of simple things you can do to avoid detection:
+
+   - Just wait a bit. Try spawning the reverse shell again and wait for around 5 minutes before sending any command. You'll see the AV won't complain anymore. The reason for this is that scanning memory is an expensive operation. Therefore, the AV will do it for a while after your process starts but will eventually stop.
+   - Use smaller payloads. The smaller the payload, the less likely it is to be detected. If you use msfvenom to get a single command executed instead of a reverse shell, the AV will have a harder time detecting it. You can try with msfvenom -a x64 -p windows/x64/exec CMD='net user pwnd Password321 /add;net localgroup administrators pwnd /add' -f csharp and see what happens.
+
+If detection isn't an issue, you can even use a simple trick. From your reverse shell, run cmd.exe again. The AV will detect your payload and kill the associated process, but not the new cmd.exe you just spawned.
+
+While every single AV will behave differently, most of the time, there will be a similar way around them, so it's worth exploring any weird behaviors you notice while testing.
